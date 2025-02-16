@@ -1,7 +1,6 @@
 package com.guilhermesantos.projecthexagonal.architecture;
 
 @AnalyzeClassees(packages = "com.guilhermesantos.projecthexagonal")
-@SpringBootTest
 public class LayeredArchitecttureTest {
 
 
