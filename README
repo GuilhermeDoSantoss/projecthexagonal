@@ -1,0 +1,34 @@
+# 🧱 Arquitetura Hexagonal (Ports & Adapters)
+
+Este repositório contém um exemplo prático baseado no conceito de **Arquitetura Hexagonal**, também conhecida como **Ports and Adapters**. Essa abordagem busca isolar a lógica de negócios das dependências externas, tornando a aplicação mais modular, testável e flexível.
+
+## 📚 Conceitos Fundamentais
+
+- **Core (Núcleo da Aplicação)**: Onde reside a lógica de negócios. Não depende de frameworks, banco de dados ou qualquer tecnologia externa.
+- **Ports (Portas)**: Interfaces que definem como o núcleo se comunica com o mundo externo. Podem ser de entrada (driven) ou saída (driving).
+- **Adapters (Adaptadores)**: Implementações concretas que conectam as portas ao mundo externo, como bancos de dados, APIs, interfaces gráficas, etc.
+
+## 🛠️ Benefícios
+
+✅ Isolamento da lógica de negócios  
+✅ Maior testabilidade (unit tests focados no core)  
+✅ Baixo acoplamento com frameworks e ferramentas  
+✅ Alta flexibilidade para troca de tecnologias  
+
+## 📁 Estrutura de Pastas (Exemplo)
+
+src/ │ ├── application/ # Casos de uso (core) ├── domain/ # Entidades e regras de negócio (core) ├── ports/ # Interfaces (ports) ├── adapters/ # Implementações (adapters) │ ├── inbound/ # Entradas: controllers, CLI, etc. │ └── outbound/ # Saídas: repositórios, gateways, etc. └── config/ # Configuração da aplicação
+
+
+## ▶️ Exemplo de Funcionamento
+
+Um controller HTTP (adapter de entrada) chama um caso de uso através de uma porta de entrada. O caso de uso executa a lógica e utiliza uma porta de saída para interagir com um repositório, cuja implementação concreta também está em um adapter.
+
+
+## 🚀 Objetivo
+
+Este projeto tem como objetivo demonstrar de forma prática como aplicar a Arquitetura Hexagonal em projetos reais, promovendo boas práticas de design e organização de código.
+
+## 🤝 Contribuições
+
+Sinta-se à vontade para abrir issues, enviar pull requests ou sugerir melhorias!
