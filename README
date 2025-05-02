@@ -3,7 +3,6 @@
 Este repositório apresenta um exemplo prático utilizando a **Arquitetura Hexagonal**, também conhecida como **Ports and Adapters**.  
 Essa abordagem tem como foco **isolar a lógica de negócios** de dependências externas, tornando a aplicação **modular, testável e flexível**.
 
----
 
 ## 📚 Conceitos Fundamentais
 
@@ -18,7 +17,6 @@ Essa abordagem tem como foco **isolar a lógica de negócios** de dependências 
 - **Adapters (Adaptadores)**  
   Implementações concretas das portas. Conectam o core ao mundo externo, como HTTP, banco de dados, mensageria etc.
 
----
 
 ## 🛠️ Benefícios
 
@@ -27,7 +25,6 @@ Essa abordagem tem como foco **isolar a lógica de negócios** de dependências 
 ✅ Baixo acoplamento com frameworks, bancos e tecnologias  
 ✅ Flexibilidade para evoluir e trocar implementações sem impacto no core  
 
----
 
 ## 📁 Estrutura de Pastas
 
@@ -48,13 +45,11 @@ src/
 3. O caso de uso executa a lógica de negócio e interage com uma **porta de saída**, como um repositório.
 4. A implementação concreta da porta de saída (por exemplo, um banco de dados) está em um **adapter de saída**.
 
----
 
 ## 🚀 Objetivo
 
 Demonstrar como aplicar a Arquitetura Hexagonal na prática, incentivando um design limpo, desacoplado e orientado a boas práticas de desenvolvimento de software.
 
----
 
 ## 🤝 Contribuições
 
