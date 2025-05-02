@@ -1,34 +1,62 @@
-# 🧱 Arquitetura Hexagonal (Ports & Adapters)
+## 🧱 Arquitetura Hexagonal (Ports & Adapters)
 
-Este repositório contém um exemplo prático baseado no conceito de **Arquitetura Hexagonal**, também conhecida como **Ports and Adapters**. Essa abordagem busca isolar a lógica de negócios das dependências externas, tornando a aplicação mais modular, testável e flexível.
+Este repositório apresenta um exemplo prático utilizando a **Arquitetura Hexagonal**, também conhecida como **Ports and Adapters**.  
+Essa abordagem tem como foco **isolar a lógica de negócios** de dependências externas, tornando a aplicação **modular, testável e flexível**.
+
+---
 
 ## 📚 Conceitos Fundamentais
 
-- **Core (Núcleo da Aplicação)**: Onde reside a lógica de negócios. Não depende de frameworks, banco de dados ou qualquer tecnologia externa.
-- **Ports (Portas)**: Interfaces que definem como o núcleo se comunica com o mundo externo. Podem ser de entrada (driven) ou saída (driving).
-- **Adapters (Adaptadores)**: Implementações concretas que conectam as portas ao mundo externo, como bancos de dados, APIs, interfaces gráficas, etc.
+- **Core (Núcleo da Aplicação)**  
+  Contém a lógica de negócio pura. Não depende de frameworks, bancos de dados ou tecnologias externas.
+
+- **Ports (Portas)**  
+  Interfaces que definem como o core interage com o mundo externo.  
+  - **Entrada (driving)**: onde casos de uso são acionados (ex: controllers, CLI).  
+  - **Saída (driven)**: interfaces que o core usa para interagir com recursos externos (ex: repositórios, APIs externas).
+
+- **Adapters (Adaptadores)**  
+  Implementações concretas das portas. Conectam o core ao mundo externo, como HTTP, banco de dados, mensageria etc.
+
+---
 
 ## 🛠️ Benefícios
 
-✅ Isolamento da lógica de negócios  
-✅ Maior testabilidade (unit tests focados no core)  
-✅ Baixo acoplamento com frameworks e ferramentas  
-✅ Alta flexibilidade para troca de tecnologias  
+✅ Isolamento real da lógica de negócios  
+✅ Alta testabilidade com foco no domínio  
+✅ Baixo acoplamento com frameworks, bancos e tecnologias  
+✅ Flexibilidade para evoluir e trocar implementações sem impacto no core  
 
-## 📁 Estrutura de Pastas (Exemplo)
+---
 
-src/ │ ├── application/ # Casos de uso (core) ├── domain/ # Entidades e regras de negócio (core) ├── ports/ # Interfaces (ports) ├── adapters/ # Implementações (adapters) │ ├── inbound/ # Entradas: controllers, CLI, etc. │ └── outbound/ # Saídas: repositórios, gateways, etc. └── config/ # Configuração da aplicação
+## 📁 Estrutura de Pastas
+
+src/
+├── application/ # Casos de uso (core)
+├── domain/ # Entidades e regras de negócio (core)
+├── ports/ # Interfaces de entrada e saída (ports)
+├── adapters/ # Implementações concretas (adapters)
+│ ├── inbound/ # Entradas: controllers, CLI, etc.
+│ └── outbound/ # Saídas: repositórios, APIs externas, etc.
+└── config/ # Configurações da aplicação
 
 
 ## ▶️ Exemplo de Funcionamento
 
-Um controller HTTP (adapter de entrada) chama um caso de uso através de uma porta de entrada. O caso de uso executa a lógica e utiliza uma porta de saída para interagir com um repositório, cuja implementação concreta também está em um adapter.
+1. Um **controller HTTP** (adapter de entrada) recebe uma requisição.
+2. Ele aciona um **caso de uso** por meio de uma **porta de entrada**.
+3. O caso de uso executa a lógica de negócio e interage com uma **porta de saída**, como um repositório.
+4. A implementação concreta da porta de saída (por exemplo, um banco de dados) está em um **adapter de saída**.
 
+---
 
 ## 🚀 Objetivo
 
-Este projeto tem como objetivo demonstrar de forma prática como aplicar a Arquitetura Hexagonal em projetos reais, promovendo boas práticas de design e organização de código.
+Demonstrar como aplicar a Arquitetura Hexagonal na prática, incentivando um design limpo, desacoplado e orientado a boas práticas de desenvolvimento de software.
+
+---
 
 ## 🤝 Contribuições
 
-Sinta-se à vontade para abrir issues, enviar pull requests ou sugerir melhorias!
+Sinta-se à vontade para abrir issues, enviar pull requests ou sugerir melhorias!  
+Toda contribuição é muito bem-vinda! 🚀
